@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/primaryLightColor</item>
+        <item name="android:statusBarColor">@color/primaryDarkColor</item>
+    </style>
+
+    <style name="MyToolbarStyle" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/primaryColor</item>
+        <item name="contentScrim">@color/primaryColor</item>
+    </style>
+
+    <style name="MyCollapsingToolbarStyle" parent="Widget.Design.CollapsingToolbar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/primaryColor</item>
+    </style>
+
+    <style name="MyNestedScrollViewStyle">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/backgroundColor</item>
+    </style>
+
+    <style name="MyFloatingActionButtonStyle" parent="Widget.Design.FloatingActionButton">
+        <item name="android:backgroundTint">@color/primaryDarkColor</item>
+        <item name="borderWidth">0dp</item>
+    </style>
+
+    <style name="ThemeOverlay.CardView" parent="">
+        <item name="colorPrimary">@color/primaryLightColor</item>
+    </style>
+
+    <style name="Widget.Flashcard.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/TextAppearance.Flashcard.TextInputLayout.HintText</item>
+        <item name="hintTextColor">@color/primaryTextColor</item>
+        <item name="errorTextColor">#ff0000</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="boxStrokeColor">@color/primaryColor</item>
+    </style>
+
+    <style name="Widget.Flashcard.TextInputLayout.OutlineBox.ExposedDropDownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="hintTextAppearance">@style/TextAppearance.Flashcard.TextInputLayout.HintText</item>
+        <item name="hintTextColor">@color/primaryTextColor</item>
+        <item name="errorTextColor">#ff0000</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="boxStrokeColor">@color/primaryColor</item>
+    </style>
+
+    <style name="TextAppearance.Flashcard.TextInputLayout.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">@color/primaryColor</item>
+    </style>
+</resources>

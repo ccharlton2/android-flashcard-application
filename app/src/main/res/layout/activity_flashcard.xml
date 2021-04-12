@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flashcard_activity_main_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".FlashcardActivity">
+
+    <include layout="@layout/flashcard_scrolling" />
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:padding="10sp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/activity_flashcard_floating_action_button_shuffle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            style="@style/MyFloatingActionButtonStyle"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/fab_content_desc"
+            android:nestedScrollingEnabled="false"
+            android:padding="16dp"
+            app:srcCompat="@drawable/round_shuffle_24" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/activity_flashcard_floating_action_button_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/activity_flashcard_floating_action_button_add_flashcard"
+            style="@style/MyFloatingActionButtonStyle"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/fab_content_desc"
+            android:nestedScrollingEnabled="false"
+            android:padding="16dp"
+            app:srcCompat="@drawable/round_replay_24" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/activity_flashcard_floating_action_button_add_flashcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            style="@style/MyFloatingActionButtonStyle"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/fab_content_desc"
+            android:nestedScrollingEnabled="false"
+            android:padding="16dp"
+            app:srcCompat="@drawable/round_add_24" />
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
