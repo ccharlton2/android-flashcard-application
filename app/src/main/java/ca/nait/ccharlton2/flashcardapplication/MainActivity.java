@@ -45,6 +45,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static SQLiteDatabase database;
     static DBManager manager;
 
+    /*
+     * OnCreate()
+     *
+     * What does it do?
+     *
+     * Sets values needed for activity functionality
+     *
+     * Instantiates activity views and listeners
+     * */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -65,9 +74,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         FloatingActionButton fabDelete = (FloatingActionButton) findViewById(R.id.floating_action_button_delete);
         FloatingActionButton fabDeselect = (FloatingActionButton) findViewById(R.id.floating_action_button_deselect_all);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floating_action_button);
+        FloatingActionButton fabAddGroup = (FloatingActionButton) findViewById(R.id.floating_action_button);
         Chip filterChip = findViewById(R.id.flashcard_group_filter_chip);
 
+        // filterChip start
         filterChip.setOnCloseIconClickListener(new View.OnClickListener()
         {
             @Override
@@ -77,7 +87,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 refreshActivityView();
             }
         });
+        // filterChip end
 
+        // fabDelete start
         fabDelete.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -100,15 +112,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 fabDelete.setVisibility(View.INVISIBLE);
-                fab.setVisibility(View.VISIBLE);
+                fabAddGroup.setVisibility(View.VISIBLE);
 
                 Snackbar.make(mainView, deleteItemCount == 1 ? String.valueOf(deleteItemCount) + " item deleted" : String.valueOf(deleteItemCount) + " items deleted", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 refreshActivityView();
             }
         });
+        // fabDelete end
 
-        fab.setOnClickListener(new View.OnClickListener()
+        // fabAddGroup start
+        fabAddGroup.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -227,7 +241,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 builder.show();
             }
         });
+        // fabAddGroup end
 
+        // fabDeselect start
         fabDeselect.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -236,13 +252,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 refreshActivityView();
             }
         });
+        // fabDeselect end
     }
 
+    /*
+     * refreshActivityView()
+     *
+     * What does it do?
+     *
+     * Rebinds the RecyclerView and toggles visibility of certain view elements
+     * */
     public void refreshActivityView()
     {
         FloatingActionButton fabDelete = (FloatingActionButton) findViewById(R.id.floating_action_button_delete);
         FloatingActionButton fabDeselect = (FloatingActionButton) findViewById(R.id.floating_action_button_deselect_all);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floating_action_button);
+        FloatingActionButton fabAddGroup = (FloatingActionButton) findViewById(R.id.floating_action_button);
         Chip filterChip = findViewById(R.id.flashcard_group_filter_chip);
         deleteGroupIds.clear();
         deleteItemCount = 0;
@@ -273,7 +297,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Start by adding a category", Toast.LENGTH_LONG).show();
         }
 
-        fab.setVisibility(View.VISIBLE);
+        fabAddGroup.setVisibility(View.VISIBLE);
         fabDelete.setVisibility(View.INVISIBLE);
         fabDeselect.setVisibility(View.INVISIBLE);
     }

@@ -36,7 +36,7 @@ public class CustomFlashcardGroupRecyclerViewAdapter extends RecyclerView.Adapte
     private ArrayList<FlashcardGroup> mArrayList;
     static SQLiteDatabase database;
     static DBManager manager;
-    MaterialCardView card;
+    MaterialCardView flashcardGroupCardView;
 
     CustomFlashcardGroupRecyclerViewAdapter(Context context, ArrayList<FlashcardGroup> listGroups)
     {
@@ -63,12 +63,12 @@ public class CustomFlashcardGroupRecyclerViewAdapter extends RecyclerView.Adapte
         holder.groupGroupId.setText(String.valueOf(groups.getId()));
         holder.groupFlashcardCount.setText(String.valueOf(groups.getFlashcardCount()).equals("1") ? String.valueOf(groups.getFlashcardCount()) + " Card" : String.valueOf(groups.getFlashcardCount()) + " Cards");
 
-        card = holder.itemView.findViewById(R.id.flashcard);
+        flashcardGroupCardView = holder.itemView.findViewById(R.id.flashcard);
         FloatingActionButton fab = (FloatingActionButton) ((Activity) context).findViewById(R.id.floating_action_button);
         FloatingActionButton fabDelete = (FloatingActionButton) ((Activity) context).findViewById(R.id.floating_action_button_delete);
         FloatingActionButton fabDeselect = (FloatingActionButton) ((Activity) context).findViewById(R.id.floating_action_button_deselect_all);
 
-        ImageView editGroupImageView = card.findViewById(R.id.flashcard_group_edit_group_image_view);
+        ImageView editGroupImageView = flashcardGroupCardView.findViewById(R.id.flashcard_group_edit_group_image_view);
 
         // Edit group start
         editGroupImageView.setOnClickListener(new View.OnClickListener()
@@ -149,6 +149,7 @@ public class CustomFlashcardGroupRecyclerViewAdapter extends RecyclerView.Adapte
                         }
                     }
                 });
+                
                 builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener()
                 {
                     @Override
@@ -172,8 +173,8 @@ public class CustomFlashcardGroupRecyclerViewAdapter extends RecyclerView.Adapte
         });
         // Edit group end
 
-        // Group card start
-        card.setOnLongClickListener(
+        // Group flashcardGroupCardView start
+        flashcardGroupCardView.setOnLongClickListener(
                 new View.OnLongClickListener()
                 {
                     public boolean onLongClick(View view)
@@ -213,7 +214,7 @@ public class CustomFlashcardGroupRecyclerViewAdapter extends RecyclerView.Adapte
                 }
         );
 
-        card.setOnClickListener(new View.OnClickListener()
+        flashcardGroupCardView.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -226,7 +227,7 @@ public class CustomFlashcardGroupRecyclerViewAdapter extends RecyclerView.Adapte
                 }
             }
         });
-        // Group card end
+        // Group flashcardGroupCardView end
     }
 
     @Override
